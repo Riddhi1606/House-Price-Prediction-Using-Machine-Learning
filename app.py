@@ -4,7 +4,7 @@ import joblib
 import plotly.graph_objects as go
 from datetime import datetime
 
----------------- PAGE CONFIG ----------------
+#---------------- PAGE CONFIG ----------------
 st.set_page_config(
 page_title="House Price Prediction",
 page_icon="🏡",
@@ -12,7 +12,7 @@ layout="wide",
 initial_sidebar_state="auto"
 )
 
----------------- STYLES ----------------
+#---------------- STYLES ----------------
 You can move CSS into a separate style.css and load it instead for maintainability.
 st.markdown(
 """
@@ -45,14 +45,14 @@ margin-bottom:18px;
 unsafe_allow_html=True,
 )
 
----------------- LOAD MODEL ----------------
+#---------------- LOAD MODEL ----------------
 @st.cache_resource
 def load_model(path="house_price_model.pkl"):
 return joblib.load(path)
 
 model = load_model()
 
----------------- HEADER ----------------
+#---------------- HEADER ----------------
 st.markdown(
 """
 <div class="app-header">
@@ -66,7 +66,7 @@ st.markdown(
 unsafe_allow_html=True
 )
 
----------------- SIDEBAR ----------------
+#---------------- SIDEBAR ----------------
 st.sidebar.header("About this project")
 st.sidebar.info(
 "Random Forest Regressor trained on tabular housing features. Use the inputs to the right (or open the example presets) and press Predict."
@@ -80,7 +80,7 @@ st.sidebar.write("Tech: Python, scikit-learn, Streamlit, Plotly, joblib")
 st.sidebar.success("AI & ML Project — Developed by Riddhi Sharma")
 st.sidebar.caption("Tip: Use the Example presets to quickly try common property types.")
 
----------------- EXAMPLE PRESETS ----------------
+# ---------------- EXAMPLE PRESETS ----------------
 presets = {
 "Select a preset": None,
 "Urban Premium (Large house)": {
@@ -103,7 +103,7 @@ presets = {
 preset_choice = st.selectbox("Example presets", options=list(presets.keys()))
 preset = presets[preset_choice]
 
----------------- INPUTS (MAIN) ----------------
+# ---------------- INPUTS (MAIN) ----------------
 st.subheader("Property Information")
 with st.form("property_form"):
 col1, col2, col3 = st.columns()
@@ -141,7 +141,7 @@ neighborhood_map = {"Low": 0, "Medium": 1, "High": 2}
 neighborhood_tier = neighborhood_map.get(neighborhood, 1)
 has_pool = 1 if pool == "Yes" else 0
 
----------------- PROPERTY PROFILE (RADAR) ----------------
+# ---------------- PROPERTY PROFILE (RADAR) ----------------
 st.markdown("---")
 st.subheader("Property Profile")
 area_score = min(square_footage / 10000, 1.0)
@@ -183,7 +183,7 @@ st.write(f"- Neighborhood tier: {neighborhood}")
 st.write(f"- Distance to transit: {distance_to_transit} km")
 st.write(f"- Garage capacity: {garage_capacity}")
 
----------------- PREDICTION ----------------
+# ---------------- PREDICTION ----------------
 if submit_btn:
 input_df = pd.DataFrame({
 "property_id": [int(property_id)],
@@ -280,6 +280,6 @@ st.write(f"✅ {ins}")
 st.subheader("Input Summary")
 st.dataframe(input_df, use_container_width=True)
 
----------------- FOOTER ----------------
+# ---------------- FOOTER ----------------
 st.markdown("---")
 st.caption("House Price Prediction - Riddhi Sharma - Built with Streamlit & scikit-learn")
