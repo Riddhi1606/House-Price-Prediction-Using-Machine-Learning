@@ -13,7 +13,7 @@ initial_sidebar_state="auto"
 )
 
 #---------------- STYLES ----------------
-# You can move CSS into a separate style.css and load it instead for maintainability.
+
 st.markdown(
 """
 <style>
@@ -48,7 +48,7 @@ unsafe_allow_html=True,
 #---------------- LOAD MODEL ----------------
 @st.cache_resource
 def load_model(path="house_price_model.pkl"):
-return joblib.load(path)
+ return joblib.load(path)
 
 model = load_model()
 
