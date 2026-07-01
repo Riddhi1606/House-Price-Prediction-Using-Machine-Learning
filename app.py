@@ -260,7 +260,7 @@ st.plotly_chart(gauge, use_container_width=True)
 
 # AI Insights
 st.subheader("AI Insights")
-insights = ]
+insights = []
 if square_footage > 3000:
 insights.append("Large area increases price.")
 if num_bedrooms >= 4:
