@@ -13,7 +13,7 @@ initial_sidebar_state="auto"
 )
 
 #---------------- STYLES ----------------
-You can move CSS into a separate style.css and load it instead for maintainability.
+# You can move CSS into a separate style.css and load it instead for maintainability.
 st.markdown(
 """
 <style>
